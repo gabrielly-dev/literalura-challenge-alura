@@ -18,14 +18,14 @@ public class Livro {
     private Long numeroDeDownloads;
 
     @ManyToOne
-    @JoinColumn(name = "autor_id") // Chave estrangeira no banco
+    @JoinColumn(name = "autor_id")
     private Autor autor;
 
     public Livro(DadosLivro dadosLivro, Autor autor) {
         this.id = dadosLivro.id();
         this.tituloDoLivro = dadosLivro.tituloDoLivro();
 
-        // Tratamento mais seguro para o gênero
+
         String genero = dadosLivro.genero();
         this.categoriaDoLivro = (genero != null && !genero.isEmpty()) ?
                 Categoria.fromString(genero.split(",")[0].trim()) :

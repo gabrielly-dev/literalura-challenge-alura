@@ -76,10 +76,8 @@ public class Principal {
 
         var dadosLivroAPI = resultado.results().get(0);
 
-        // Primeiro, cria e salva o autor
         var autor = new Autor(dadosLivroAPI.authors().get(0));
-        autor = autorRepository.save(autor);  // Salva o autor primeiro e pega a referência persistida
-
+        autor = autorRepository.save(autor);
         var dadosLivro = new DadosLivro(
                 dadosLivroAPI.bookshelves().isEmpty() ? "Literature" : dadosLivroAPI.bookshelves().get(0),
                 dadosLivroAPI.languages().isEmpty() ? "en" : dadosLivroAPI.languages().get(0),
@@ -88,7 +86,6 @@ public class Principal {
                 dadosLivroAPI.title()
         );
 
-        // Depois cria e salva o livro com o autor já persistido
         var livro = new Livro(dadosLivro, autor);
         autor.getLivros().add(livro);
         livroRepositorio.save(livro);

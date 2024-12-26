@@ -55,7 +55,7 @@ public enum Categoria {
                 return categoria;
             }
         }
-        return Categoria.LITERATURA; // Categoria padrão caso nenhuma corresponda
+        return Categoria.LITERATURA;
     }
 
     public static Categoria fromPortugues(String text) {
