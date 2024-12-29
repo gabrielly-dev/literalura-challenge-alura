@@ -73,10 +73,10 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", nomeAutor='" + nomeAutor + '\'' +
-                ", dataDeNascimentoDoAutor=" + dataDeNascimentoDoAutor +
-                ", dataDeMorteDoAutor=" + dataDeMorteDoAutor +
-                ", livros=" + livros;
+        return "ID: " + id +
+                "\n  Nome: " + nomeAutor + '\'' +
+                "\n  Nascimento: " + dataDeNascimentoDoAutor +
+                "\n  Falecimento: " + dataDeMorteDoAutor +
+                "\n  Quantidade de Livros: " + (livros != null ? livros.size() : 0);
     }
 }

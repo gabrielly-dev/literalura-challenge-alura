@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Livro {
 
     @Id
+    @Column(unique = true)
     private Long id;
 
     private String tituloDoLivro;
@@ -90,10 +91,11 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", categoriaDoLivro=" + categoriaDoLivro +
-                ", linguagem='" + linguagem + '\'' +
-                ", numeroDeDownloads=" + numeroDeDownloads +
-                ", autor='" + autor;
+        return "ID: " + id +
+                    "\n  Título: " + tituloDoLivro + '\'' +
+                    "\n  Categoria: " + categoriaDoLivro +
+                    "\n  Linguagem: " + linguagem + '\'' +
+                    "\n  Downloads: " + numeroDeDownloads +
+                    "\n  Autor: " + (autor != null ? autor.getNomeAutor() : "Não informado");
+        }
     }
-}
